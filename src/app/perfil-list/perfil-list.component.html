@@ -1,1 +1,25 @@
-<p>perfil-list works!</p>
+<div class="row">
+    <a href="#" routerLink="/usuarios/cad" class="btn btn-dark"></a>
+  </div>
+  <div class="container row">
+    <div class="alert " [ngClass]="{'alert-success': response === true, 'alert-danger':response === false }">
+      {{msgResponse}}
+    </div>
+  </div>
+  <ul class="list-group d-flex fustify-between-content" style="list-style: none;">
+    <li *ngFor='let perfil of perfilsList | async' class="list-group-item">
+      <span class="badge badge-dark">
+        {{perfil.id}}
+      </span>
+      <span>
+        {{perfil.nome}}
+      </span>
+  
+      <span>
+        <a href="#" (click)="editPerfil(perfil.id)" class="btn btn-info">Editar</a>
+      </span>
+      <span>
+        <a href="#" (click)="deletePerfil(perfil.id)" class="btn btn-danger">Excluir</a>
+      </span>
+    </li>
+  </ul>

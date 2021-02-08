@@ -1,1 +1,24 @@
-<p>cargo-list works!</p>
+<div class="container row my-4 mb-2">
+  <div class="d-flex justify-content-center">
+    <a href="#" routerLink="/cargos/cad" class="btn btn-dark">Adicionar Cargo</a>
+  </div>
+  <div class="alert " [ngClass]="{'alert-success': response === true, 'alert-danger':response === false }">
+    {{msgResponse}}
+  </div>
+</div>
+<ul class="list-groupt" style="list-style: none;">
+  <li *ngFor='let cargo of cargosList | async' class="list-group-item d-flex justify-content-between">
+    <span class="badge badge-dark p-2">
+      {{cargo.id}}
+    </span>
+    <span>
+      {{cargo.nome}}
+    </span>
+
+    <span>
+      <a  (click)="editCargo(cargo.id)" class="btn btn-info">Editar</a>
+    |
+      <a  (click)="deleteCargo(cargo.id)" class="btn btn-danger">Excluir</a>
+    </span>
+  </li>
+</ul>

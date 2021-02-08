@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,6 +13,7 @@ import { PerfilCadComponent } from './perfil-cad/perfil-cad.component';
 import { CargoListComponent } from './cargo-list/cargo-list.component';
 import { CargoCadComponent } from './cargo-cad/cargo-cad.component';
 import { UsuarioPerfilComponent } from './usuario-perfil/usuario-perfil.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { UsuarioPerfilComponent } from './usuario-perfil/usuario-perfil.componen
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
