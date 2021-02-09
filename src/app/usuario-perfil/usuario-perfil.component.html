@@ -1,1 +1,35 @@
-<p>usuario-perfil works!</p>
+<div class="container-fluid col-6 my-4 mb-2">
+  <div class="card bg-warning">
+    <div class="card-header">Cadastrar Perfil pro Usuário <b>{{ usuario.nome }}</b> </div>
+    <div class="card-body">
+      <select name="idPerfil" id="idPerfil" [(ngModel)]="usuarioPerfil.idPerfil" class="form-control">
+        <option value="0">----Selectione----</option>
+        <option *ngFor="let perfil of perfis | async" [value]="perfil.id"> {{perfil.nome}} </option>
+      </select>
+      <div class="card-footer">
+        <button (click)="inserirPerfilUsuario()" class="btn btn-success">Inserir</button>
+      </div>
+    </div>  
+  </div>
+</div>
+
+<div class="container row">
+  <div class="alert " [ngClass]="{'alert-success': response === true, 'alert-danger':response === false }">
+    {{msgResponse}}
+  </div>
+</div>
+<ul class="list-group" style="list-style: none;">
+  <li *ngFor='let perfil of usuario.perfils'
+  class="list-group-item d-flex justify-content-between">
+    <span class="badge badge-dark p-2">
+      {{perfil.id}}
+    </span>
+    <span class="mr-auto ml-2">
+      {{perfil.nome}}
+    </span>    
+
+    <span>
+      <a   (click)="deletePerfilUsuario(perfil.id)" class="btn btn-danger">Excluir</a>
+    </span>
+  </li>
+</ul>

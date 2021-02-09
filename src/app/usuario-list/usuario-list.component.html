@@ -1,1 +1,33 @@
-<p>usuario-list works!</p>
+<div class="container row my-4 mb-2">
+  <a routerLink="/usuarios/cad" class="btn btn-success">Adicionar Usuário</a>
+</div>
+<div class="container row">
+  <div class="alert " [ngClass]="{'alert-success': response === true, 'alert-danger':response === false }">
+    {{msgResponse}}
+  </div>
+</div>
+<ul class="list-group" style="list-style: none;">
+  <li *ngFor='let usuario of usuariosList | async'
+  class="list-group-item d-flex justify-content-between">
+    <span class="badge badge-dark p-2">
+      {{usuario.id}}
+    </span>
+    <span class="mr-auto ml-2">
+      {{usuario.nome}}
+    </span>
+    <span class="mr-auto ml-2">
+      {{usuario.dataNascimento | date: 'dd/MM/yyyy'}}
+    </span>
+    <span class="mr-auto ml-2">
+      {{usuario.cargo?.nome}}
+    </span>
+
+    <span>
+      <a (click)="perfisUsuario(usuario.id)" class="btn btn-info">Perfis</a>
+   |
+      <a (click)="editUsuario(usuario.id)" class="btn btn-info">Editar</a>
+   |
+      <a   (click)="deleteUsuario(usuario.id)" class="btn btn-danger">Excluir</a>
+    </span>
+  </li>
+</ul>

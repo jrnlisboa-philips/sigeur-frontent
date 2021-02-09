@@ -1,25 +1,25 @@
-<div class="row">
-    <a href="#" routerLink="/usuarios/cad" class="btn btn-dark"></a>
+<div class="container row my-4 mb-2">
+    <a routerLink="/perfis/cad" class="btn btn-warning">Adicionar Perfil</a>
   </div>
   <div class="container row">
     <div class="alert " [ngClass]="{'alert-success': response === true, 'alert-danger':response === false }">
       {{msgResponse}}
     </div>
   </div>
-  <ul class="list-group d-flex fustify-between-content" style="list-style: none;">
-    <li *ngFor='let perfil of perfilsList | async' class="list-group-item">
-      <span class="badge badge-dark">
+  <ul class="list-group" style="list-style: none;">
+    <li *ngFor='let perfil of perfilsList | async'
+    class="list-group-item d-flex justify-content-between">
+      <span class="badge badge-dark p-2">
         {{perfil.id}}
       </span>
-      <span>
+      <span class="mr-auto ml-2">
         {{perfil.nome}}
       </span>
-  
+
       <span>
-        <a href="#" (click)="editPerfil(perfil.id)" class="btn btn-info">Editar</a>
-      </span>
-      <span>
-        <a href="#" (click)="deletePerfil(perfil.id)" class="btn btn-danger">Excluir</a>
+        <a (click)="editPerfil(perfil.id)" class="btn btn-info">Editar</a>
+     |
+        <a   (click)="deletePerfil(perfil.id)" class="btn btn-danger">Excluir</a>
       </span>
     </li>
   </ul>

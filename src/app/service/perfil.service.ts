@@ -9,8 +9,8 @@ import { Perfil } from '../interface/perfil';
 })
 export class PerfilService {
 
-  urlApiPerfil:string = environment.apiUrl + "/perfils"
-  
+  urlApiPerfil:string = environment.apiUrl + "/perfils/"
+
   constructor(private http: HttpClient) { }
 
   list(): Observable<any> {
@@ -18,7 +18,7 @@ export class PerfilService {
   }
 
   getPerfilById(id:string) {
-    return this.http.get(this.urlApiPerfil + `/${id}`);
+    return this.http.get(this.urlApiPerfil + `${id}`);
   }
 
   save(perfil: Perfil) {
@@ -26,10 +26,10 @@ export class PerfilService {
   }
 
   update(perfil: Perfil) {
-    return this.http.put(this.urlApiPerfil + `/${perfil.id}`, perfil);
+    return this.http.put(this.urlApiPerfil + `${perfil.id}`, perfil);
   }
 
   delete(id?: string) {
-    return this.http.delete(this.urlApiPerfil + `/${id}`);
+    return this.http.delete(this.urlApiPerfil + `${id}`);
   }
 }

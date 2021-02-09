@@ -9,7 +9,7 @@ import { Usuario } from '../interface/usuario';
 })
 export class UsuarioService {
 
-  urlApiUsuario:string = environment.apiUrl + "/usuarios";
+  urlApiUsuario:string = environment.apiUrl + "/usuarios/";
 
   constructor(private http: HttpClient) { }
 
@@ -17,19 +17,27 @@ export class UsuarioService {
     return this.http.get(this.urlApiUsuario);
   }
 
-  getusuarioById(id:string) {
-    return this.http.get(this.urlApiUsuario + `/${id}`);
+  getUsuarioById(id:string) {
+    return this.http.get(this.urlApiUsuario + `${id}`);
   }
 
   save(usuario: Usuario) {
     return this.http.post(this.urlApiUsuario, usuario);
   }
 
-  update(usuario: Usuario) {
-    return this.http.put(this.urlApiUsuario + `/${usuario.id}`, usuario);
+  savePerfilUsuario(usuario: Usuario) {
+    return this.http.post(this.urlApiUsuario + 'perfil', usuario);
   }
 
-  delete(id: string) {
-    return this.http.delete(this.urlApiUsuario + `/${id}`);
+  update(usuario: Usuario) {
+    return this.http.put(this.urlApiUsuario + `${usuario.id}`, usuario);
+  }
+
+  delete(id?: string) {
+    return this.http.delete(this.urlApiUsuario + `${id}`);
+  }
+
+  deletePerfilUsuario(id?: string, idUsuario?: string) {
+    return this.http.delete(this.urlApiUsuario + `perfil/${id}/${idUsuario}`);
   }
 }
