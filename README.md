@@ -1,27 +1,22 @@
-# SigeurFrontend
+# Sigeur Frontend
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.1.3.
+Projeto gerado com [Angular CLI](https://github.com/angular/angular-cli) version 11.1.3.
+
+É necessário ter a versão mais recente do Node.js e NPM.
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Após baixar o projeto, rodar `npm install`.
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Para subir o projeto no servidor locak, executar `ng serve` no seu comandline, navegar até `http://localhost:4200/`. 
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Se quiser fazer o build para produção, só rodar `ng build`. Os arquivos de produção se encontrarão no diretório `dist/`. Use a opção `--prod` flag para buildar para produção.
 
-## Running unit tests
+______________________________________________________________
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Layout
+Para o Layout da aplicação, foi usado o NG-Bootstrap, e o Bootstrap 4.5.
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+O sistema respeita um fluxo simples de uso, com menu superior, e Action Buttons nas listas.
